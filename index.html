@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Library Management System</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('books')">Books</button>
+            <button class="tab-button" onclick="openTab('users')">Users</button>
+            <button class="tab-button" onclick="openTab('transactions')">Transactions</button>
+        </div>
+        
+        <div id="books" class="tab-content" style="display: block;">
+            <h2>Book Management</h2>
+            <button onclick="showAddBookForm()">Add New Book</button>
+            
+            <div id="add-book-form" style="display: none;">
+                <h3>Add New Book</h3>
+                <form id="book-form">
+                    <input type="text" id="book-title" placeholder="Title" required>
+                    <input type="text" id="book-author" placeholder="Author" required>
+                    <input type="text" id="book-isbn" placeholder="ISBN" required>
+                    <input type="number" id="book-copies" placeholder="Total Copies" required>
+                    <button type="submit">Add Book</button>
+                </form>
+            </div>
+            
+            <div id="books-list">
+                <h3>Book List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN</th>
+                            <th>Available</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="books-table-body">
+                        <!-- Books will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="users" class="tab-content">
+            <h2>User Management</h2>
+            <button onclick="showAddUserForm()">Add New User</button>
+            
+            <div id="add-user-form" style="display: none;">
+                <h3>Add New User</h3>
+                <form id="user-form">
+                    <input type="text" id="user-name" placeholder="Name" required>
+                    <input type="text" id="user-id" placeholder="User ID" required>
+                    <select id="user-type" required>
+                        <option value="member">Member</option>
+                        <option value="librarian">Librarian</option>
+                    </select>
+                    <button type="submit">Add User</button>
+                </form>
+            </div>
+            
+            <div id="users-list">
+                <h3>User List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>User ID</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        <!-- Users will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div id="transactions" class="tab-content">
+            <h2>Transaction Management</h2>
+            
+            <div class="transaction-section">
+                <h3>Check Out Book</h3>
+                <form id="checkout-form">
+                    <input type="text" id="checkout-isbn" placeholder="Book ISBN" required>
+                    <input type="text" id="checkout-user" placeholder="User ID" required>
+                    <button type="submit">Check Out</button>
+                </form>
+            </div>
+            
+            <div class="transaction-section">
+                <h3>Return Book</h3>
+                <form id="return-form">
+                    <input type="text" id="return-isbn" placeholder="Book ISBN" required>
+                    <input type="text" id="return-user" placeholder="User ID" required>
+                    <button type="submit">Return</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
